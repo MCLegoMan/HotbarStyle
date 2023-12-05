@@ -1,0 +1,4 @@
+accessWidener v2 named
+accessible method net/minecraft/client/gui/hud/in_game/InGameHud renderHotbarItem (Lnet/minecraft/client/gui/GuiGraphics;IIFLnet/minecraft/entity/player/PlayerEntity;Lnet/minecraft/item/ItemStack;I)V
+accessible class net/minecraft/client/gui/hud/in_game/InGameHud$HeartType
+accessible method net/minecraft/client/gui/hud/in_game/InGameHud$HeartType fromPlayerState (Lnet/minecraft/entity/player/PlayerEntity;)Lnet/minecraft/client/gui/hud/in_game/InGameHud$HeartType;

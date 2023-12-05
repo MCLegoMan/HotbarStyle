@@ -1,11 +1,11 @@
 /*
-    Mod Template
+    HotbarStyle
     Contributor(s): MCLegoMan
-    Github: https://github.com/MCLegoMan/Mod-Template
+    Github: https://github.com/MCLegoMan/HotbarStyle
     Licence: GNU LGPLv3
 */
 
-package com.mclegoman.mod_template.client.data;
+package com.mclegoman.hotbarstyle.client.data;
 
 import net.minecraft.client.MinecraftClient;
 

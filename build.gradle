@@ -6,6 +6,19 @@ plugins {
 version = project.mod_version
 group = project.maven_group
 
+loom {
+	accessWidenerPath = file("src/main/resources/hotbarstyle.accesswidener")
+	mods {
+		"hotbarstyle" {
+			// Tell Loom about each source set used by your mod here. This ensures that your mod's classes are properly transformed by Loader.
+			sourceSet("main")
+			// If you shade (directly include classes, not JiJ) a dependency into your mod, include it here using one of these methods:
+			// dependency("com.example.shadowedmod:1.2.3")
+			// configuration("exampleShadedConfigurationName")
+		}
+	}
+}
+
 base {
 	archivesName = project.archives_base_name
 }
@@ -22,6 +35,9 @@ dependencies {
 	//modImplementation "org.quiltmc.quilted-fabric-api:quilted-fabric-api:${project.qsl_version}"
 
 	include(modImplementation "com.github.MCLegoMan:releasetypeutils:${project.rtu_version}")
+
+	include(implementation"com.github.LlamaLad7:MixinExtras:0.1.1")
+	annotationProcessor("com.github.LlamaLad7:MixinExtras:0.1.1")
 }
 
 processResources {
