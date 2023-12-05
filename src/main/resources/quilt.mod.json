@@ -1,0 +1,31 @@
+{
+	"schema_version": 1,
+	"quilt_loader": {
+		"group": "com.mclegoman",
+		"id": "mod_template",
+		"version": "${version}",
+		"metadata": {
+			"name": "Mod Template",
+			"description": "A template mod to create Quilt Loader mods.",
+			"contributors": {
+				"MCLegoMan": "Owner"
+			},
+			"contact": {
+				"homepage": "https://mclegoman.com",
+				"sources": "https://github.com/MCLegoMan/Mod-Template",
+				"issues": "https://github.com/MCLegoMan/Mod-Template/issues"
+			},
+			"icon": "assets/mod_template/icon.png",
+			"license": "LGPL-3.0-or-later"
+		},
+		"intermediate_mappings": "net.fabricmc:intermediary",
+		"entrypoints": {
+			"init": "com.mclegoman.mod_template.common.ModTemplate",
+			"client_init": "com.mclegoman.mod_template.client.ModTemplateClient",
+			"server_init": "com.mclegoman.mod_template.client.ModTemplateServer"
+		},
+		"depends": [
+		]
+	},
+	"mixin": "mod_template.mixins.json"
+}

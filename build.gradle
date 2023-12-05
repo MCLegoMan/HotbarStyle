@@ -1,0 +1,60 @@
+plugins {
+	id 'org.quiltmc.loom' version '1.4.1'
+	id 'maven-publish'
+}
+
+version = project.mod_version
+group = project.maven_group
+
+base {
+	archivesName = project.archives_base_name
+}
+
+repositories {
+	maven { url 'https://jitpack.io' }
+}
+
+dependencies {
+	minecraft "com.mojang:minecraft:${project.minecraft_version}"
+	mappings "org.quiltmc:quilt-mappings:${minecraft_version}+build.${quilt_mappings}:intermediary-v2"
+	modImplementation "org.quiltmc:quilt-loader:${project.loader_version}"
+	// QSL for 1.20.2 is not yet available.
+	//modImplementation "org.quiltmc.quilted-fabric-api:quilted-fabric-api:${project.qsl_version}"
+
+	include(modImplementation "com.github.MCLegoMan:releasetypeutils:${project.rtu_version}")
+}
+
+processResources {
+	inputs.property "version", project.version
+
+	filesMatching("quilt.mod.json") {
+		expand "version": project.version
+	}
+}
+
+tasks.withType(JavaCompile).configureEach {
+	it.options.release = 17
+}
+
+java {
+	withSourcesJar()
+	sourceCompatibility = JavaVersion.VERSION_17
+	targetCompatibility = JavaVersion.VERSION_17
+}
+
+jar {
+	from("LICENSE") {
+		rename { "${it}_${project.base.archivesName.get()}"}
+	}
+}
+
+publishing {
+	publications {
+		mavenJava(MavenPublication) {
+			from components.java
+		}
+	}
+
+	repositories {
+	}
+}
